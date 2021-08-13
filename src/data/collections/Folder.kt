@@ -6,6 +6,7 @@ import org.bson.types.ObjectId
 data class Folder(
     val folderName : String,
     val note: Note? = null,
+    val userEmail : String,
     @BsonId
     val id : String = ObjectId().toString()
 )

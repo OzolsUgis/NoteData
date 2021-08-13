@@ -7,6 +7,7 @@ data class Note(
     val title : String,
     val date : Long,
     val content : String,
+    val userEmail : String,
     @BsonId
     val id : String = ObjectId().toString()
 )
