@@ -28,8 +28,23 @@ repositories {
 }
 
 dependencies {
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation "io.ktor:ktor-server-netty:$ktor_version"
+    // To enable logging, include logback in build script
     implementation "ch.qos.logback:logback-classic:$logback_version"
+    implementation "io.ktor:ktor-server-core:$ktor_version"
+    implementation "io.ktor:ktor-html-builder:$ktor_version"
+    implementation "org.jetbrains:kotlin-css-jvm:1.0.0-pre.31-kotlin-1.2.41"
     testImplementation "io.ktor:ktor-server-tests:$ktor_version"
+    implementation "io.ktor:ktor-auth:$ktor_version"
+    implementation "io.ktor:ktor-gson:$ktor_version"
+    implementation 'org.litote.kmongo:kmongo:4.0.2'
+    implementation 'org.litote.kmongo:kmongo-coroutine:4.0.2'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.4.2'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-reactive:1.4.2'
+    implementation 'commons-codec:commons-codec:1.14'
+    implementation "io.ktor:ktor-network-tls:$ktor_version"
+    implementation "io.ktor:ktor-freemarker:$ktor_version"
 }
