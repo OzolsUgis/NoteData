@@ -52,7 +52,7 @@ fun Route.noteRoutes(){
                     call.respond(HttpStatusCode.BadRequest)
                     return@post
                 }
-                if(deleteFolder(email,request.noteId)){
+                if(deleteNote(email,request.noteId)){
                     call.respond(HttpStatusCode.OK)
                 }else{
                     call.respond(HttpStatusCode.Conflict)
