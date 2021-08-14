@@ -6,7 +6,6 @@ import com.ugisozols.data.collections.User
 import org.litote.kmongo.coroutine.coroutine
 import org.litote.kmongo.eq
 import org.litote.kmongo.reactivestreams.KMongo
-import reactor.core.publisher.toMono
 
 
 private val client = KMongo.createClient().coroutine
