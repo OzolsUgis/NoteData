@@ -1,5 +1,10 @@
 package com.ugisozols
 
+import com.ugisozols.data.checkPasswordForEmail
+import com.ugisozols.data.routes.folderRoutes
+import com.ugisozols.data.routes.loginRoute
+import com.ugisozols.data.routes.noteRoutes
+import com.ugisozols.data.routes.registerRoute
 import io.ktor.application.*
 import io.ktor.auth.*
 import io.ktor.features.*
@@ -20,11 +25,30 @@ fun Application.module(testing: Boolean = false) {
     }
     install(CallLogging)
     install(DefaultHeaders)
-    install(Authentication)
-    install(Routing){
-
+    install(Authentication){
+        configureAuth()
     }
+    install(Routing){
+        folderRoutes()
+        loginRoute()
+        registerRoute()
+        noteRoutes()
+    }
+
 
 
 }
 
+fun Authentication.Configuration.configureAuth(){
+    basic {
+        realm = "Note Database"
+        validate { credentials->
+            val email = credentials.name
+            val password = credentials.password
+
+            if(checkPasswordForEmail(email,password)){
+                UserIdPrincipal(email)
+            }else null
+        }
+    }
+}
