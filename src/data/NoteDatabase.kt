@@ -9,7 +9,7 @@ import org.litote.kmongo.reactivestreams.KMongo
 
 
 private val client = KMongo.createClient().coroutine
-private val database = client.getDatabase("NoteDB")
+private val database = client.getDatabase("NotesDatabase")
 
 val users = database.getCollection<User>()
 val folders = database.getCollection<Folder>()
