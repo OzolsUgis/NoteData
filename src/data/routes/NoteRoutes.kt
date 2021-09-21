@@ -1,10 +1,7 @@
 package com.ugisozols.data.routes
 
 import com.ugisozols.data.*
-import com.ugisozols.data.collections.Folder
 import com.ugisozols.data.collections.Note
-import com.ugisozols.data.collections.User
-import com.ugisozols.data.requests.DeleteFolder
 import com.ugisozols.data.requests.DeleteNote
 import io.ktor.application.*
 import io.ktor.auth.*
@@ -42,7 +39,7 @@ fun Route.noteRoutes(){
         }
     }
 
-    route("deleteNote"){
+    route("/deleteNote"){
         authenticate {
             post {
                 val email = call.principal<UserIdPrincipal>()!!.name

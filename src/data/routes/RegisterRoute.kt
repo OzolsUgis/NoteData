@@ -1,6 +1,5 @@
 package com.ugisozols.data.routes
 
-import com.sun.tools.javac.Main
 import com.ugisozols.data.checkIfUserExistsByEmail
 import com.ugisozols.data.collections.User
 import com.ugisozols.data.registerUser

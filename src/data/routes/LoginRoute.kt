@@ -21,7 +21,6 @@ fun Route.loginRoute(){
                 call.respond(HttpStatusCode.BadRequest)
                 return@post
             }
-
             val isPasswordCorrect = checkPasswordForEmail(request.email,request.password)
             if(isPasswordCorrect){
                 call.respond(MainResponses(true,"You are now logged in"))
