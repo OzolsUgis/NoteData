@@ -3,6 +3,7 @@ package com.ugisozols.data
 
 import com.ugisozols.data.collections.Note
 import com.ugisozols.data.collections.User
+import com.ugisozols.security.hashForPassword
 import org.litote.kmongo.coroutine.coroutine
 import org.litote.kmongo.eq
 import org.litote.kmongo.reactivestreams.KMongo
@@ -21,7 +22,7 @@ suspend fun checkIfUserExistsByEmail (email : String) : Boolean {
 
 suspend fun checkPasswordForEmail(email: String, passwordToCheck : String) : Boolean {
     val realPassword = users.findOne(User::email eq email)?.password ?: return false
-    return realPassword == passwordToCheck
+    return hashForPassword(passwordToCheck, realPassword)
 }
 
 suspend fun registerUser(user: User): Boolean {

@@ -1,7 +1,6 @@
 package com.ugisozols
 
 import com.ugisozols.data.checkPasswordForEmail
-import com.ugisozols.data.routes.folderRoutes
 import com.ugisozols.data.routes.loginRoute
 import com.ugisozols.data.routes.noteRoutes
 import com.ugisozols.data.routes.registerRoute
@@ -9,8 +8,6 @@ import io.ktor.application.*
 import io.ktor.auth.*
 import io.ktor.features.*
 import io.ktor.gson.*
-import io.ktor.response.*
-import io.ktor.request.*
 import io.ktor.routing.*
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
@@ -29,7 +26,6 @@ fun Application.module(testing: Boolean = false) {
         configureAuth()
     }
     install(Routing){
-        folderRoutes()
         loginRoute()
         registerRoute()
         noteRoutes()

@@ -5,6 +5,7 @@ import com.ugisozols.data.collections.User
 import com.ugisozols.data.registerUser
 import com.ugisozols.data.requests.AccountRequests
 import com.ugisozols.data.responses.MainResponses
+import com.ugisozols.security.hashWithSalt
 import io.ktor.application.*
 import io.ktor.http.*
 import io.ktor.request.*
@@ -22,7 +23,7 @@ fun Route.registerRoute(){
             }
             val userExists = checkIfUserExistsByEmail(request.email)
             if(!userExists){
-                if (registerUser(User(request.email,request.password))){
+                if (registerUser(User(request.email, hashWithSalt(request.password)))){
                     call.respond(MainResponses(true, "Account created"))
                 }else{
                     call.respond(MainResponses(false,"An unknown error occurred"))
